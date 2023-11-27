@@ -31,7 +31,7 @@ int main() {
     cout << "End Date: " << v[result.end].date << std::endl;
 
     std::cout.rdbuf(coutBuffer);
-    
+
 
 
 

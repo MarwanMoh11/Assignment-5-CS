@@ -1,0 +1,12 @@
+Heap Operations:
+Both buildheapMax and buildheapMin functions have a time complexity of O(n), where n is the size of the data being inputted. This is beacause Heapify is taking O(logn) time and we have n/2 nodes in the heap.
+
+For getting the top increase and decrease each operation needs heapify to perform the removals from the heap N times. And Heapify algorithm has a complexity of O(logn). Hence the time comlpexity is O(Nlogn).
+
+findMaxSubsequenceSum function iterates through the data once to calculate the cumulative sum. The time complexity of this operation is O(n), where n is the size of the data inputted.
+
+Adding all the complexities up we get a total time complexity of O(n+Nlogn) where n is the size of data and N is the number given by the user for top increasing or decreasing. 
+
+The space complexity is O(n) due to the storage of the unput data.
+
+Note: The calculations of the mean could be done more efficiently to avoid rudendancy.
