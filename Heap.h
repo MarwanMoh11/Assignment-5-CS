@@ -28,7 +28,7 @@ public:
     vector<DataSet> findTopNDecrease(int N, float mean);
     void printHeap();
     bool compareChanges(const DataSet& a, const DataSet& b);
-    Subsequence findMaxSubsequence(const std::vector<DataSet>& data);
+    Subsequence findMaxSubsequence(const std::vector<DataSet>& data, float mean);
 
 private:
     vector<T> heapData;
@@ -40,7 +40,7 @@ private:
 };
 
 template<typename T>
-Subsequence Heap<T>::findMaxSubsequence(const vector<DataSet> &data) {
+Subsequence Heap<T>::findMaxSubsequence(const vector<DataSet> &data, float mean) {
     Subsequence maxSubsequence;
     maxSubsequence.start = -1;
     maxSubsequence.end = -1;
@@ -50,7 +50,7 @@ Subsequence Heap<T>::findMaxSubsequence(const vector<DataSet> &data) {
     int currentStart = 0;
 
     for (int i = 0; i < data.size(); ++i) {
-        currentSum += data[i].rate;
+        currentSum += (data[i].rate - mean);
 
         if (currentSum < 0.0) {
             currentSum = 0.0;

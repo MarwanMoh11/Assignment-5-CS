@@ -18,12 +18,14 @@ int main() {
     cout << "Top " << N << " Decreases:"<<endl;
     test.findTopNDecrease(N,x.getmean());
 
-    Subsequence result = test.findMaxSubsequence(v);
+    Subsequence result = test.findMaxSubsequence(v,x.getmean());
 
     std::cout << "Maximum Subsequence Sum: " << result.sum << std::endl;
     std::cout << "Start Index: " << result.start << std::endl;
     std::cout << "End Index: " << result.end << std::endl;
-    cout << x.getmean();
+
+    std::cout << "Start Date: " << v[result.start].date << std::endl;
+    std::cout << "End Date: " << v[result.end].date << std::endl;
 
 
 
