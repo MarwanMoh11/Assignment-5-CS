@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-    File x("test.txt");
+    File x("test.txt"); // Put the txt files in cmake debug build
     int N = 10;
     x.openAndRead();
     vector<DataSet> v;
