@@ -1,0 +1,28 @@
+File 'test.txt' successfully read.
+Top 10 Increases:
+Date:4/22/2008, Rate: 0.413845
+Date:4/16/2008, Rate: 0.409045
+Date:7/11/2008, Rate: 0.408045
+Date:7/21/2008, Rate: 0.406845
+Date:7/15/2008, Rate: 0.406145
+Date:4/21/2008, Rate: 0.405045
+Date:7/14/2008, Rate: 0.404845
+Date:4/17/2008, Rate: 0.404145
+Date:4/23/2008, Rate: 0.403345
+Date:7/2/2008, Rate: 0.402345
+Top 10 Decreases:
+Date:10/25/2000, Rate: -0.358455
+Date:10/26/2000, Rate: -0.356055
+Date:10/24/2000, Rate: -0.350055
+Date:10/23/2000, Rate: -0.349855
+Date:7/5/2001, Rate: -0.348655
+Date:11/24/2000, Rate: -0.347255
+Date:10/18/2000, Rate: -0.346655
+Date:10/27/2000, Rate: -0.346655
+Date:10/30/2000, Rate: -0.345055
+Date:10/20/2000, Rate: -0.344155
+Maximum Subsequence Sum: 404.808
+Start Index: 1230
+End Index: 4033
+Start Date: 11/18/2003
+End Date: 1/6/2015

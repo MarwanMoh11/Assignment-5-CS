@@ -6,6 +6,9 @@
 using namespace std;
 
 int main() {
+    ofstream outputFile("output.txt");
+    streambuf *coutBuffer = std::cout.rdbuf();
+    cout.rdbuf(outputFile.rdbuf());
     File x("test.txt"); // Put the txt files in cmake debug build
     int N = 10;
     x.openAndRead();
@@ -26,6 +29,9 @@ int main() {
 
     cout << "Start Date: " << v[result.start].date << std::endl;
     cout << "End Date: " << v[result.end].date << std::endl;
+
+    std::cout.rdbuf(coutBuffer);
+    
 
 
 
