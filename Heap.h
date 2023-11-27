@@ -21,6 +21,7 @@ public:
     int findTopNIncrease(int N);
     int findTopNDecrease(int N);
     void printHeap();
+    bool compareChanges(const DataSet& a, const DataSet& b);
 
 private:
     vector<T> heapData;
@@ -104,13 +105,47 @@ void Heap<T>::buildMinHeap() {
 
 template<typename T>
 int Heap<T>::findTopNIncrease(int N) {
-    // Implement as needed
+    buildheapMax(); // Build the max heap before entering the loop
+
+    // Ensure that N is not greater than the heap size
+    N = std::min(N, static_cast<int>(heapData.size()));
+
+    for (int i = 0; i < N; i++) {
+        DataSet x = heapData.front(); // Use front() instead of back()
+
+        // Remove the maximum element (root of the max heap)
+        std::swap(heapData.front(), heapData.back());
+        heapData.pop_back(); // Remove the last element
+
+        // Adjust the heap by heapifying the root
+        heapifyMax(heapData.size(), 0);
+
+        cout << "Date:" << x.date << ", " << "Rate: " << x.rate << endl;
+    }
+
     return 0;
 }
 
+
 template<typename T>
 int Heap<T>::findTopNDecrease(int N) {
-    // Implement as needed
+    buildheapMin(); // Build the max heap before entering the loop
+
+    // Ensure that N is not greater than the heap size
+    N = std::min(N, static_cast<int>(heapData.size()));
+
+    for (int i = 0; i < N; i++) {
+        DataSet x = heapData.front(); // Use front() instead of back()
+
+        // Remove the maximum element (root of the max heap)
+        std::swap(heapData.front(), heapData.back());
+        heapData.pop_back(); // Remove the last element
+
+        // Adjust the heap by heapifying the root
+        heapifyMin(heapData.size(), 0);
+
+        cout << "Date:" << x.date << ", " << "Rate: " << x.rate << endl;
+    }
     return 0;
 }
 
@@ -121,5 +156,7 @@ void Heap<T>::printHeap() {
     }
     cout << endl;
 }
+
+
 
 #endif //ASSIGNMENT_5_CS_HEAP_H

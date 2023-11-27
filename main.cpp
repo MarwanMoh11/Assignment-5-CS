@@ -1,5 +1,6 @@
 #include <iostream>
 #include "File.h"
+#include "Heap.h"
 #include <string>
 #include <iostream>
 using namespace std;
@@ -10,8 +11,7 @@ int main() {
     vector<DataSet> v;
     v = x.getContents();
     Heap test(v);
-    test.buildMaxHeap();
-    test.printHeap();
+    test.findTopNDecrease(10);
 
 
 

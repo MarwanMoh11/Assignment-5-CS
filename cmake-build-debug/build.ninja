@@ -55,12 +55,6 @@ build CMakeFiles/Assignment_5_CS.dir/main.cpp.obj: CXX_COMPILER__Assignment_5_CS
   OBJECT_DIR = CMakeFiles\Assignment_5_CS.dir
   OBJECT_FILE_DIR = CMakeFiles\Assignment_5_CS.dir
 
-build CMakeFiles/Assignment_5_CS.dir/Heap.cpp.obj: CXX_COMPILER__Assignment_5_CS_unscanned_Debug D$:/C++/Assignment$ 5/Assignment-5-CS/Heap.cpp || cmake_object_order_depends_target_Assignment_5_CS
-  DEP_FILE = CMakeFiles\Assignment_5_CS.dir\Heap.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\Assignment_5_CS.dir
-  OBJECT_FILE_DIR = CMakeFiles\Assignment_5_CS.dir
-
 build CMakeFiles/Assignment_5_CS.dir/File.cpp.obj: CXX_COMPILER__Assignment_5_CS_unscanned_Debug D$:/C++/Assignment$ 5/Assignment-5-CS/File.cpp || cmake_object_order_depends_target_Assignment_5_CS
   DEP_FILE = CMakeFiles\Assignment_5_CS.dir\File.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
@@ -75,7 +69,7 @@ build CMakeFiles/Assignment_5_CS.dir/File.cpp.obj: CXX_COMPILER__Assignment_5_CS
 #############################################
 # Link the executable Assignment_5_CS.exe
 
-build Assignment_5_CS.exe: CXX_EXECUTABLE_LINKER__Assignment_5_CS_Debug CMakeFiles/Assignment_5_CS.dir/main.cpp.obj CMakeFiles/Assignment_5_CS.dir/Heap.cpp.obj CMakeFiles/Assignment_5_CS.dir/File.cpp.obj
+build Assignment_5_CS.exe: CXX_EXECUTABLE_LINKER__Assignment_5_CS_Debug CMakeFiles/Assignment_5_CS.dir/main.cpp.obj CMakeFiles/Assignment_5_CS.dir/File.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Assignment_5_CS.dir
