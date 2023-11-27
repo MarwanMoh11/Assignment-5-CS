@@ -16,9 +16,12 @@ public:
     File(const string& file_name);
     void openAndRead();
     vector<DataSet> getContents() const;
+    float getmean();
 private:
     vector<DataSet> data;
     string file_name;
+    float count;
+    float sum = 0;
 
 
 

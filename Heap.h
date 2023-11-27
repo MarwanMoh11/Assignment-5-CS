@@ -12,16 +12,23 @@ struct DataSet {
     DataSet(string x, float y) : date(x), rate(y) {}
 };
 
+struct Subsequence {
+    int start;
+    int end;
+    float sum;
+};
+
 template <typename T>
 class Heap {
 public:
     Heap(const std::vector<T>& data);
     void buildMaxHeap();
     void buildMinHeap();
-    int findTopNIncrease(int N);
-    int findTopNDecrease(int N);
+    vector<DataSet> findTopNIncrease(int N, float mean);
+    vector<DataSet> findTopNDecrease(int N, float mean);
     void printHeap();
     bool compareChanges(const DataSet& a, const DataSet& b);
+    Subsequence findMaxSubsequence(const std::vector<DataSet>& data);
 
 private:
     vector<T> heapData;
@@ -31,6 +38,34 @@ private:
     void buildheapMax();
     void buildheapMin();
 };
+
+template<typename T>
+Subsequence Heap<T>::findMaxSubsequence(const vector<DataSet> &data) {
+    Subsequence maxSubsequence;
+    maxSubsequence.start = -1;
+    maxSubsequence.end = -1;
+    maxSubsequence.sum = 0.0;
+
+    float currentSum = 0.0;
+    int currentStart = 0;
+
+    for (int i = 0; i < data.size(); ++i) {
+        currentSum += data[i].rate;
+
+        if (currentSum < 0.0) {
+            currentSum = 0.0;
+            currentStart = i + 1;
+        }
+
+        if (currentSum > maxSubsequence.sum) {
+            maxSubsequence.start = currentStart;
+            maxSubsequence.end = i;
+            maxSubsequence.sum = currentSum;
+        }
+    }
+
+    return maxSubsequence;
+}
 
 template<typename T>
 Heap<T>::Heap(const std::vector<T>& data) : heapData(data) {}
@@ -104,11 +139,12 @@ void Heap<T>::buildMinHeap() {
 }
 
 template<typename T>
-int Heap<T>::findTopNIncrease(int N) {
+vector<DataSet> Heap<T>::findTopNIncrease(int N,float mean) {
     buildheapMax(); // Build the max heap before entering the loop
 
     // Ensure that N is not greater than the heap size
     N = std::min(N, static_cast<int>(heapData.size()));
+    vector<DataSet> output;
 
     for (int i = 0; i < N; i++) {
         DataSet x = heapData.front(); // Use front() instead of back()
@@ -119,20 +155,22 @@ int Heap<T>::findTopNIncrease(int N) {
 
         // Adjust the heap by heapifying the root
         heapifyMax(heapData.size(), 0);
+        output.emplace_back(x);
 
-        cout << "Date:" << x.date << ", " << "Rate: " << x.rate << endl;
+        cout << "Date:" << x.date << ", " << "Rate: " << x.rate - mean << endl;
     }
 
-    return 0;
+    return output;
 }
 
 
 template<typename T>
-int Heap<T>::findTopNDecrease(int N) {
+vector<DataSet> Heap<T>::findTopNDecrease(int N, float mean) {
     buildheapMin(); // Build the max heap before entering the loop
 
     // Ensure that N is not greater than the heap size
     N = std::min(N, static_cast<int>(heapData.size()));
+    vector<DataSet> output;
 
     for (int i = 0; i < N; i++) {
         DataSet x = heapData.front(); // Use front() instead of back()
@@ -143,10 +181,11 @@ int Heap<T>::findTopNDecrease(int N) {
 
         // Adjust the heap by heapifying the root
         heapifyMin(heapData.size(), 0);
+        output.emplace_back(x);
 
-        cout << "Date:" << x.date << ", " << "Rate: " << x.rate << endl;
+        cout << "Date:" << x.date << ", " << "Rate: " << x.rate - mean << endl;
     }
-    return 0;
+    return output;
 }
 
 template<typename T>

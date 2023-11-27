@@ -24,7 +24,12 @@ void File::openAndRead() {
             float number;
             while (iss >> std::ws >> number) {
                 data.emplace_back(dateStr, number);
+                count = count+ 1;
+
+                sum = sum + number;
+
             }
+
         }
         std::cout << "File '" << this->file_name << "' successfully read.\n";
     } else {
@@ -34,5 +39,9 @@ void File::openAndRead() {
 
 vector<DataSet> File::getContents() const {
     return data;
+}
+
+float File::getmean() {
+    return sum/count;
 }
 
