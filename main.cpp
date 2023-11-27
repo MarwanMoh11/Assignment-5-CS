@@ -9,6 +9,9 @@ int main() {
     x.openAndRead();
     vector<DataSet> v;
     v = x.getContents();
+    Heap test(v);
+    test.buildMaxHeap();
+    test.printHeap();
 
 
 
