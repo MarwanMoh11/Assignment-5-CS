@@ -10,19 +10,19 @@ File::File(const string &file_name) {
 }
 
 void File::openAndRead() {
-    std::ifstream file(this->file_name);
+    ifstream file(this->file_name);
     if (file.is_open()) {
-        std::string line;
-        while (std::getline(file, line)) {
-            std::istringstream iss(line);
+        string line;
+        while (getline(file, line)) {
+            istringstream iss(line);
 
             // Extract date
-            std::string dateStr;
+            string dateStr;
             iss >> dateStr;
 
             // Extract rate by skipping whitespace
             float number;
-            while (iss >> std::ws >> number) {
+            while (iss >> ws >> number) {
                 data.emplace_back(dateStr, number);
                 count = count+ 1;
 
@@ -31,9 +31,9 @@ void File::openAndRead() {
             }
 
         }
-        std::cout << "File '" << this->file_name << "' successfully read.\n";
+        cout << "File '" << this->file_name << "' successfully read.\n";
     } else {
-        std::cerr << "Error opening file '" << this->file_name << "'.\n";
+        cerr << "Error opening file '" << this->file_name << "'.\n";
     }
 }
 

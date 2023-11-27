@@ -21,14 +21,14 @@ struct Subsequence {
 template <typename T>
 class Heap {
 public:
-    Heap(const std::vector<T>& data);
+    Heap(const vector<T>& data);
     void buildMaxHeap();
     void buildMinHeap();
     vector<DataSet> findTopNIncrease(int N, float mean);
     vector<DataSet> findTopNDecrease(int N, float mean);
     void printHeap();
     bool compareChanges(const DataSet& a, const DataSet& b);
-    Subsequence findMaxSubsequence(const std::vector<DataSet>& data, float mean);
+    Subsequence findMaxSubsequence(const vector<DataSet>& data, float mean);
 
 private:
     vector<T> heapData;
@@ -68,7 +68,7 @@ Subsequence Heap<T>::findMaxSubsequence(const vector<DataSet> &data, float mean)
 }
 
 template<typename T>
-Heap<T>::Heap(const std::vector<T>& data) : heapData(data) {}
+Heap<T>::Heap(const vector<T>& data) : heapData(data) {}
 
 template<typename T>
 void Heap<T>::heapifyMax(int n, int i) {
@@ -85,7 +85,7 @@ void Heap<T>::heapifyMax(int n, int i) {
     }
 
     if (largest != i) {
-        std::swap(heapData[i], heapData[largest]);
+        swap(heapData[i], heapData[largest]);
         heapifyMax(n, largest);
     }
 }
@@ -105,7 +105,7 @@ void Heap<T>::heapifyMin(int n, int i) {
     }
 
     if (smallest != i) {
-        std::swap(heapData[i], heapData[smallest]);
+        swap(heapData[i], heapData[smallest]);
         heapifyMin(n, smallest);
     }
 }
@@ -143,14 +143,14 @@ vector<DataSet> Heap<T>::findTopNIncrease(int N,float mean) {
     buildheapMax(); // Build the max heap before entering the loop
 
     // Ensure that N is not greater than the heap size
-    N = std::min(N, static_cast<int>(heapData.size()));
+    N = min(N, static_cast<int>(heapData.size()));
     vector<DataSet> output;
 
     for (int i = 0; i < N; i++) {
         DataSet x = heapData.front(); // Use front() instead of back()
 
         // Remove the maximum element (root of the max heap)
-        std::swap(heapData.front(), heapData.back());
+        swap(heapData.front(), heapData.back());
         heapData.pop_back(); // Remove the last element
 
         // Adjust the heap by heapifying the root
@@ -169,14 +169,14 @@ vector<DataSet> Heap<T>::findTopNDecrease(int N, float mean) {
     buildheapMin(); // Build the max heap before entering the loop
 
     // Ensure that N is not greater than the heap size
-    N = std::min(N, static_cast<int>(heapData.size()));
+    N = min(N, static_cast<int>(heapData.size()));
     vector<DataSet> output;
 
     for (int i = 0; i < N; i++) {
         DataSet x = heapData.front(); // Use front() instead of back()
 
         // Remove the maximum element (root of the max heap)
-        std::swap(heapData.front(), heapData.back());
+        swap(heapData.front(), heapData.back());
         heapData.pop_back(); // Remove the last element
 
         // Adjust the heap by heapifying the root

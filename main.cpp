@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-    File x("D:\\C++\\Assignment 5\\Assignment-5-CS\\test.txt");
+    File x("test.txt");
     int N = 10;
     x.openAndRead();
     vector<DataSet> v;
@@ -20,12 +20,12 @@ int main() {
 
     Subsequence result = test.findMaxSubsequence(v,x.getmean());
 
-    std::cout << "Maximum Subsequence Sum: " << result.sum << std::endl;
-    std::cout << "Start Index: " << result.start << std::endl;
-    std::cout << "End Index: " << result.end << std::endl;
+    cout << "Maximum Subsequence Sum: " << result.sum << std::endl;
+    cout << "Start Index: " << result.start << std::endl;
+    cout << "End Index: " << result.end << std::endl;
 
-    std::cout << "Start Date: " << v[result.start].date << std::endl;
-    std::cout << "End Date: " << v[result.end].date << std::endl;
+    cout << "Start Date: " << v[result.start].date << std::endl;
+    cout << "End Date: " << v[result.end].date << std::endl;
 
 
 
